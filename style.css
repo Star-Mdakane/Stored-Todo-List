@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(196, 238, 238);
+    color: rgb(39, 38, 37);
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    padding: 2rem;
+    margin: 0 auto;
+    width: 350px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper h1 {
+    font-size: 2.1rem;
+    margin-bottom: 1.5rem;
+    color: rgb(39, 38, 37);
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.input-field {
+    width: 100%;
+    height: 45px;
+    background-color: white;
+    border-radius: .3rem;
+    padding: .5rem;
+    box-shadow: 0 10px 15px rgba(96, 192, 192, 0.2);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field span {
+    color: white;
+    background-color: rgb(39, 38, 37);
+    height: 100%;
+    width: 40px;
+    border-radius: .3rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+
+}
+
+.task-list {}
+
+.task {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    border-radius: .3rem;
+    box-shadow: 0 10px 15px rgba(96, 192, 192, 0.2);
+
+}
+
+.task-input {
+    padding-left: .5rem;
+}
+
+
+.action {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    place-content: center;
+    color: rgb(39, 38, 37);
+    cursor: pointer;
+}
+
+.clear-btn {
+    padding: .3rem .5rem;
+    font-size: .9rem;
+    color: white;
+    background-color: rgb(39, 38, 37);
+    border-radius: .3rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    margin-top: 1rem;
+}
