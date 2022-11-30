@@ -68,21 +68,24 @@ button {
     pointer-events: auto;
 }
 
-.input-field span .task {
+.task {
     height: 40px;
     width: 100%;
     line-height: 40px;
     border-radius: .3rem;
-    box-shadow: 0 10px 15px rgba(96, 192, 192, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
 
 }
 
 .task-input {
     padding-left: .5rem;
+    color: black;
 }
 
 
-.action {
+.edit,
+.delete {
     position: relative;
     height: 40px;
     width: 40px;
