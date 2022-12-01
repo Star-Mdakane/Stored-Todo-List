@@ -3,6 +3,7 @@ const addBtn = document.querySelector('.add-item');
 const taskList = document.querySelector('.task-list');
 const clearBtn = document.querySelector('.clear-btn');
 todos = JSON.parse(localStorage.getItem('todos')) || [];
+// const taskItem = document.querySelector('task-input');
 
 input.addEventListener('keyup', () => {
     if (input.value.trim() != 0) {
@@ -18,6 +19,7 @@ addBtn.addEventListener('click', () => {
 
     localStorage.setItem('todos', JSON.stringify(todos));
     showItems();
+    addBtn.classList.remove('active');
 });
 
 function showItems() {
@@ -25,12 +27,12 @@ function showItems() {
 
     taskList.innerHTML = '';
 
-    todos.forEach(todo => {
+    todos.forEach((todo, ind) => {
         // taskIn += `
         // <div class="task">
         //     <input type="text" class="task-input" value="${todo}">
-        //     <span class="action edit"><i class="fa-sharp fa-solid fa-file-pen"></i></i></span>
-        //     <span class="action delete"><i class="fa-solid fa-trash-can"></i></i></i></span>
+        //     <span class="edit"><i class="fa-sharp fa-solid fa-file-pen"></i></i></span>
+        //     <span class="delete"><i class="fa-solid fa-trash-can"></i></i></i></span>
         // </div>
         // `
         let task = document.createElement('div');
@@ -54,6 +56,32 @@ function showItems() {
         task.append(del);
 
         taskList.append(task);
+
+        del.addEventListener('click', (e) => {
+            todos = todos.filter(el => el != todo);
+
+            localStorage.setItem('todos', JSON.stringify(todos));
+            showItems();
+        });
+
+        edit.addEventListener('click', (e) => {
+            let inp = document.querySelector('.task-input');
+            inp.focus();
+            inp.addEventListener('blur', (e) => {
+                todos.splice(ind, 1, e.target.value);
+                // todo = input.value;
+                localStorage.setItem('todos', JSON.stringify(todos));
+                showItems();
+            })
+
+        })
+
+
+        clearBtn.addEventListener('click', (e) => {
+            todos = [];
+            localStorage.setItem('todos', JSON.stringify(todos));
+            showItems();
+        })
     })
 
     input.value = '';
@@ -62,3 +90,5 @@ function showItems() {
 }
 
 showItems();
+
+
